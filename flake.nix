@@ -1,5 +1,5 @@
 {
-  description = "NixOS flake with i3 + polybar + brave + alacritty";
+  description = "main flake";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-24.05";
@@ -17,12 +17,21 @@
       in {
         packages.install = import ./install.nix { inherit pkgs; };
 
-        nixosConfigurations.my-host = nixpkgs.lib.nixosSystem {
-          system = "x86_64-linux";
-          modules = [
-            ./hosts/my-host/configuration.nix
-            disko.nixosModules.disko
-          ];
-        };
+        nixosConfigurations = {
+          minimal = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              ./hosts/minimal/configuration.nix
+              disko.nixosModules.disko
+            ];
+          };
+          full = nixpkgs.lib.nixosSystem {
+            system = "x86_64-linux";
+            modules = [
+              ./hosts/full/configuration.nix
+              disko.nixosModules.disko
+            ];
+          };
+	};
       });
 }
