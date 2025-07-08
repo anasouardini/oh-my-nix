@@ -2,9 +2,9 @@
 
 {
   imports = [
-    ../../modules/desktop.nix
+    ./desktop.nix
     ../../modules/users.nix
-    ./disko.nix
+    ../../modules/disko.nix
   ];
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
