@@ -8,7 +8,9 @@ The entry script accepts two arguments:
 
 By default, if you don't specify the  2nd argument, it'll automatically assume that you're running the minimal configuration, which is what should happen, after which a systemd unit will automatically install the 2nd stage of the installaton (the "full" configuration) while you can still use the system.
 
+So you don't have to provid the 2nd argument, but if you do, It'll work just fine, except that you won't benefit from using your system before the entire installaton is complete.
+
 ## Usage:
 Simply run this script and optionaly change "desktop" with one of the directories you see in the root of this repo.
 
-`bash <(curl -sL https://raw.githubusercontent.com/anasouardini/oh-my-nix/main/install.sh) desktop`
+Command: `bash <(curl -sL https://raw.githubusercontent.com/anasouardini/oh-my-nix/main/install.sh) desktop`

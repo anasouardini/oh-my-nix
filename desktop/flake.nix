@@ -15,8 +15,6 @@
           config.allowUnfree = true;
         };
       in {
-        packages.install = import ./install.nix { inherit pkgs; };
-
         nixosConfigurations = {
           minimal = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
