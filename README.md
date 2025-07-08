@@ -2,7 +2,9 @@
 
 ## Usage:
 Simply run this script and optionaly change "desktop" with one of the directories you see in the root of this repo.
+
 Command: `bash <(curl -sL https://raw.githubusercontent.com/anasouardini/oh-my-nix/main/install.sh) desktop`
+
 Short Verson: `bash <(curl -sL https://dozy.netlify.app/ohmynix.sh) desktop`
 
 ## Boring Details
