@@ -1,9 +1,16 @@
+{ lib, ... }:
+let
+  #! builtins.getEnv only works with --impure
+  targetDevice = builtins.getEnv "TARGET_DEVICE_NAME";
+in
+assert device != "";  # This will throw an error if DEVICE_NAME is empty
 {
   disko.devices = {
     disk.main = {
       type = "disk";
+      device = targetDevice;
+      # device = "/dev/vda";
       # device = "/dev/disk/by-id/someidhere";
-      device = "/dev/vda";
 
       content = {
         type = "gpt";  # GPT is still fine for BIOS boot
