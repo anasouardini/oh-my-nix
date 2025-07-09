@@ -8,11 +8,6 @@ if [ $# -lt 1 ]; then
     exit 1
 fi
 
-PROFILE="$1"
-STAGE="${2:-minimal}"
-REPO_URL="https://github.com/anasouardini/oh-my-nix"
-DEST_DIR="/mnt/oh-my-nix"
-
 # picking the target device
 ## tools
 printGreen() {
@@ -43,6 +38,12 @@ if [[ ! $isContinue = "y" ]]; then
 fi
 
 # installing NixOS
+
+PROFILE="$1"
+STAGE="${2:-minimal}"
+REPO_URL="https://github.com/anasouardini/oh-my-nix"
+DEST_DIR="$HOME/oh-my-nix"
+
 # Clone the repo if it doesn't exist
 if [ ! -d "$DEST_DIR" ]; then
     git clone "$REPO_URL" "$DEST_DIR"
