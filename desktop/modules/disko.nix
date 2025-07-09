@@ -3,7 +3,7 @@ let
   #! builtins.getEnv only works with --impure
   targetDevice = builtins.getEnv "TARGET_DEVICE_NAME";
 in
-assert device != "";  # This will throw an error if DEVICE_NAME is empty
+assert targetDevice != "";  # This will throw an error if DEVICE_NAME is empty
 {
   disko.devices = {
     disk.main = {

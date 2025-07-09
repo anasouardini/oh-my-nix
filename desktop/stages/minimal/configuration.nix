@@ -26,16 +26,14 @@
   boot.kernelParams = [ "resume=/swapfile" ];
 
   # systemd service for 2nd part of installation
-  {
-    systemd.services.switch-to-full = {
-      wantedBy = [ "multi-user.target" ];
-      after = [ "network.target" ];
-      serviceConfig = {
-        Type = "oneshot";
-        User = ${config.users.myUsername};
-        ExecStart = "bash <(curl -sL https://raw.githubusercontent.com/anasouardini/oh-my-nix/main/install.sh) desktop full";
-        RemainAfterExit = true;
-      };
+  systemd.services.switch-to-full = {
+    wantedBy = [ "multi-user.target" ];
+    after = [ "network.target" ];
+    serviceConfig = {
+      Type = "oneshot";
+      User = ${config.users.myUsername};
+      ExecStart = "bash <(curl -sL https://raw.githubusercontent.com/anasouardini/oh-my-nix/main/install.sh) desktop full";
+      RemainAfterExit = true;
     };
-  }
+  };
 }

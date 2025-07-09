@@ -19,14 +19,14 @@
           minimal = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
-              ./hosts/minimal/configuration.nix
+              ./stages/minimal/configuration.nix
               disko.nixosModules.disko
             ];
           };
           full = nixpkgs.lib.nixosSystem {
             system = "x86_64-linux";
             modules = [
-              ./hosts/full/configuration.nix
+              ./stages/full/configuration.nix
               disko.nixosModules.disko
             ];
           };
